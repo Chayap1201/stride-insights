@@ -144,7 +144,7 @@ export function MarketAnalysis() {
             },
             {
               h: "Unit economics",
-              p: "$149 daily trainer at a target 55% gross margin, $249 race shoe as the halo product driving average order value and press coverage.",
+              p: "₹12,995 daily trainer at a target 55% gross margin, ₹21,995 race shoe as the halo product driving average order value and press coverage.",
             },
           ].map((c) => (
             <div key={c.h} className="rounded-lg border border-border bg-background p-6">

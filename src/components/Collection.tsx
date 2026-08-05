@@ -3,12 +3,17 @@ import { Star } from "lucide-react";
 import volt from "@/assets/shoe-volt.jpg";
 import race from "@/assets/shoe-race.jpg";
 import trail from "@/assets/shoe-trail.jpg";
+import cloud from "@/assets/shoe-cloud.jpg";
+import pulse from "@/assets/shoe-pulse.jpg";
+import street from "@/assets/shoe-street.jpg";
+
+const inr = (n: number) => `₹${n.toLocaleString("en-IN")}`;
 
 type Shoe = {
   id: string;
   name: string;
   subtitle: string;
-  tag: "Road" | "Race" | "Trail";
+  tag: "Road" | "Race" | "Trail" | "Lifestyle";
   badge?: string;
   price: number;
   compare?: number;
@@ -29,8 +34,8 @@ const shoes: Shoe[] = [
     subtitle: "Men's Road Running Shoes",
     tag: "Road",
     badge: "Just In",
-    price: 149,
-    compare: 179,
+    price: 12995,
+    compare: 15495,
     colours: ["oklch(0.9 0.23 122)", "oklch(0.18 0 0)", "oklch(0.95 0 0)"],
     drop: "8 mm drop",
     weight: "241 g (M9)",
@@ -46,7 +51,7 @@ const shoes: Shoe[] = [
     subtitle: "Unisex Racing Shoes",
     tag: "Race",
     badge: "Best Seller",
-    price: 249,
+    price: 21995,
     colours: ["oklch(0.97 0 0)", "oklch(0.68 0.2 45)", "oklch(0.5 0.16 250)"],
     drop: "6 mm drop",
     weight: "196 g (M9)",
@@ -61,7 +66,7 @@ const shoes: Shoe[] = [
     name: "Terra Grip GTX",
     subtitle: "Women's Trail Running Shoes",
     tag: "Trail",
-    price: 169,
+    price: 14495,
     colours: ["oklch(0.2 0 0)", "oklch(0.55 0.1 150)", "oklch(0.72 0.14 60)"],
     drop: "4 mm drop",
     weight: "289 g (M9)",
@@ -71,9 +76,58 @@ const shoes: Shoe[] = [
     image: trail,
     alt: "Matte black Terra Grip trail running shoe with lugged outsole, side profile",
   },
+  {
+    id: "cloud-glide",
+    name: "Cloud Glide 5",
+    subtitle: "Men's Everyday Running Shoes",
+    tag: "Road",
+    badge: "Most Popular",
+    price: 9495,
+    compare: 11995,
+    colours: ["oklch(0.97 0 0)", "oklch(0.5 0.18 260)", "oklch(0.2 0 0)"],
+    drop: "10 mm drop",
+    weight: "268 g (M9)",
+    rating: 4.8,
+    reviews: 6412,
+    stock: 46,
+    image: cloud,
+    alt: "White and blue Cloud Glide 5 everyday running shoe, side profile",
+  },
+  {
+    id: "pulse-w",
+    name: "Pulse Knit W",
+    subtitle: "Women's Running Shoes",
+    tag: "Road",
+    badge: "Trending",
+    price: 8995,
+    colours: ["oklch(0.82 0.11 15)", "oklch(0.97 0 0)", "oklch(0.7 0.15 340)"],
+    drop: "8 mm drop",
+    weight: "224 g (W8)",
+    rating: 4.7,
+    reviews: 3877,
+    stock: 8,
+    image: pulse,
+    alt: "Pink and coral Pulse Knit women's running shoe, side profile",
+  },
+  {
+    id: "street-mono",
+    name: "Street Mono Foam",
+    subtitle: "Unisex Lifestyle Sneakers",
+    tag: "Lifestyle",
+    price: 7495,
+    compare: 8995,
+    colours: ["oklch(0.18 0 0)", "oklch(0.97 0 0)"],
+    drop: "12 mm drop",
+    weight: "296 g (M9)",
+    rating: 4.5,
+    reviews: 5218,
+    stock: 61,
+    image: street,
+    alt: "Black Street Mono Foam lifestyle sneaker with white chunky sole, side profile",
+  },
 ];
 
-const filters = ["All", "Road", "Race", "Trail"] as const;
+const filters = ["All", "Road", "Race", "Trail", "Lifestyle"] as const;
 
 export function Collection({ onAdd }: { onAdd: (name: string) => void }) {
   const [filter, setFilter] = useState<(typeof filters)[number]>("All");
@@ -84,10 +138,10 @@ export function Collection({ onAdd }: { onAdd: (name: string) => void }) {
       <div className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-6 sm:flex sm:justify-between">
         <div className="min-w-0">
           <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
-            New This Week
+            Popular Right Now
           </h2>
           <p className="mt-1 text-sm text-muted-foreground">
-            {visible.length} styles · live inventory
+            {visible.length} styles · live inventory · MRP incl. of all taxes
           </p>
         </div>
         <div className="col-span-2 flex flex-wrap gap-2 sm:col-auto">
@@ -141,10 +195,10 @@ export function Collection({ onAdd }: { onAdd: (name: string) => void }) {
                   <p className="mt-0.5 text-sm text-muted-foreground">{s.subtitle}</p>
                 </div>
                 <div className="shrink-0 text-right">
-                  <p className="text-base font-medium">${s.price}.00</p>
+                  <p className="text-base font-medium">{inr(s.price)}</p>
                   {s.compare && (
                     <p className="text-sm text-muted-foreground line-through">
-                      ${s.compare}.00
+                      {inr(s.compare)}
                     </p>
                   )}
                 </div>
