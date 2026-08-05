@@ -11,7 +11,7 @@ export function SiteFooter() {
         <div className="grid gap-10 md:grid-cols-[1.4fr_repeat(3,1fr)]">
           <div>
             <div className="flex items-center gap-2">
-              <span className="grid h-8 w-8 shrink-0 place-items-center rounded-sm volt-fill font-display text-lg font-extrabold">
+              <span className="grid h-8 w-8 shrink-0 place-items-center rounded-sm bg-primary text-primary-foreground font-display text-lg font-extrabold">
                 V
               </span>
               <span className="font-display text-xl font-extrabold">Veloce Run</span>
