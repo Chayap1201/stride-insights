@@ -94,7 +94,7 @@ export function DropCta() {
               />
               <button
                 type="submit"
-                className="shrink-0 rounded-full volt-fill px-7 py-3 text-sm font-semibold transition-transform hover:scale-105"
+                className="shrink-0 rounded-full bg-primary text-primary-foreground px-7 py-3 text-sm font-semibold transition-transform hover:scale-105"
               >
                 Notify me
               </button>
