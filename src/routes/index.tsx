@@ -1,24 +1,51 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { toast } from "sonner";
+import { Toaster } from "@/components/ui/sonner";
+import { SiteNav } from "@/components/SiteNav";
+import { Hero } from "@/components/Hero";
+import { Marquee } from "@/components/Marquee";
+import { Collection } from "@/components/Collection";
+import { Tech } from "@/components/Tech";
+import { MarketAnalysis } from "@/components/MarketAnalysis";
+import { Reviews } from "@/components/Reviews";
+import { DropCta } from "@/components/DropCta";
+import { SiteFooter } from "@/components/SiteFooter";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Veloce Run — Carbon-Plated Running Shoes for Every Surface" },
+      {
+        name: "description",
+        content:
+          "Veloce Run builds nitrogen-foam, carbon-plated running shoes for road, race and trail — plus a real-world analysis of the running footwear market.",
+      },
+      { property: "og:title", content: "Veloce Run — Performance Running Shoes" },
+      {
+        property: "og:description",
+        content:
+          "Nitro-cell foam, 196 g race weight, wind-tunnel knit. Shop road, race and trail running shoes built on athlete data.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main>
+      <SiteNav />
+      <Hero />
+      <Marquee />
+      <Collection onAdd={(name) => toast.success(`${name} added to your bag`)} />
+      <Tech />
+      <MarketAnalysis />
+      <Reviews />
+      <DropCta />
+      <SiteFooter />
+      <Toaster />
+    </main>
   );
 }
