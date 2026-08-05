@@ -46,42 +46,54 @@ function LiveStat() {
 
 export function Hero() {
   return (
-    <section id="top" className="relative min-h-[100svh] overflow-hidden">
-      <img
-        src={heroImg}
-        alt="Runner mid-stride on wet city asphalt at dawn wearing volt running shoes"
-        width={1600}
-        height={1200}
-        className="absolute inset-0 h-full w-full object-cover object-center"
-      />
-      <div
-        className="absolute inset-0"
-        style={{ backgroundImage: "var(--gradient-fade)" }}
-      />
+    <section id="top" className="pt-[52px] md:pt-[88px]">
+      <div className="relative h-[78svh] min-h-[520px] overflow-hidden">
+        <img
+          src={heroImg}
+          alt="Runner mid-stride on wet city asphalt at dawn wearing performance running shoes"
+          width={1600}
+          height={1200}
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+        <div
+          className="absolute inset-0"
+          style={{ backgroundImage: "var(--gradient-fade)" }}
+        />
+        <div className="relative mx-auto flex h-full max-w-[1600px] flex-col justify-end px-5 pb-12 md:px-8 md:pb-16">
+          <p className="on-media text-xs font-semibold uppercase tracking-[0.22em] animate-rise">
+            Spring 2026 · Air-Flux Series
+          </p>
+          <h1 className="on-media mt-4 max-w-4xl text-display-xl animate-rise">
+            Every second
+            <br />
+            counts
+          </h1>
+        </div>
+      </div>
 
-      <div className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-5 pb-14 pt-32 md:px-8 md:pb-20">
-        <p className="eyebrow animate-rise">Spring 2026 · Air-Flux Series</p>
-        <h1 className="mt-4 max-w-4xl text-hero animate-rise">
-          Every second
-          <br />
-          <span className="text-volt">counts</span> forward
-        </h1>
-        <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-          Engineered for runners who measure progress in split seconds. Nitrogen-infused
-          foam, a full-length carbon plate, and a knit upper tuned in the wind tunnel.
-        </p>
+      <div className="mx-auto max-w-[1600px] px-5 py-12 md:px-8 md:py-16">
+        <div className="grid gap-8 md:grid-cols-[1.1fr_1fr] md:items-end">
+          <div>
+            <p className="eyebrow">Air-Flux 3 · Just In</p>
+            <h2 className="mt-3 text-section">Nitrogen foam. Carbon plate.</h2>
+          </div>
+          <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
+            Engineered for runners who measure progress in split seconds — a
+            supercritical foam midsole, a full-length carbon plate and a knit upper
+            tuned across 240 wind-tunnel sessions.
+          </p>
+        </div>
 
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <a
             href="#collection"
-            className="rounded-full volt-fill px-7 py-3 text-sm font-semibold transition-transform hover:scale-105"
-            style={{ boxShadow: "var(--shadow-volt)" }}
+            className="rounded-full bg-primary px-7 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-85"
           >
             Shop the drop
           </a>
           <a
             href="#tech"
-            className="rounded-full border border-border px-7 py-3 text-sm font-semibold transition-colors hover:bg-secondary"
+            className="rounded-full border border-input px-7 py-3 text-sm font-medium transition-colors hover:bg-surface"
           >
             See the tech
           </a>
