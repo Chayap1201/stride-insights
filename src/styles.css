@@ -175,3 +175,13 @@
 @utility animate-rise {
   animation: rise 0.8s var(--ease-out-athletic) both;
 }
+
+@utility on-media {
+  color: var(--color-media-foreground);
+}
+
+@utility text-display-xl {
+  font-size: clamp(3rem, 12vw, 10rem);
+  line-height: 0.84;
+  font-weight: 900;
+}
